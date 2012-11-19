@@ -13,7 +13,11 @@ http.createServer(function(reqClient, resClient) {
  		 method: reqClient.method
  		};
  var reqServer = http.request(oOptions, function(resServer) {
-  if (resServer.headers['content-type'].match(/image/)) { // catch images
+  if (resServer.statusCode != 200) { // catch & fwd headers not OK 
+   resClient.writeHead(resServer.statusCode, resServer.headers);
+   resClient.end();
+  }
+  else if (resServer.headers['content-type'].match(/image/)) { // catch & mogrify images
    var	sExt = path.extname(oUrl.path),
   		iLength = parseInt(resServer.headers['content-length']),
   		iCur = 0,
