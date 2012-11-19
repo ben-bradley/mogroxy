@@ -1,0 +1,13 @@
+Mogroxy is a NodeJS implementation of the famous Upside-Down-Ternet.  Thanks to the flexibility inherent to NodeJS, the whole app only takes up 1.7K and less than 50 lines of code long.
+
+By default, Mogroxy loads on port 8080 and will blur images that pass through it.  Feel free to change any of that, a quick review of the code should make it clear where & how to make changes.
+
+A known limitation is that it does not support HTTPS.  This will be researched & included in a later release.
+
+Combining this with ettercap can produce some more interesting results, but I'll leave that to the reader to sort out.
+
+To get this working:
+ 1 Install NodeJS and ImageMagick
+ 2 Start the proxy: $ node ./mogroxy.js
+ 3 Point a browser at the proxy
+ 4 Giggle
